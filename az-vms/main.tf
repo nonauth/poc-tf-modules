@@ -57,9 +57,10 @@ resource "azurerm_linux_virtual_machine" "this" {
   size                  = each.value.size
 
   os_disk {
-    name                 = "OsDisk"
-    caching              = "ReadWrite"
-    storage_account_type = "Premium_LRS"
+    name                 = join("-", [var.project, each.key, "os" ,var.environment])
+    caching              = each.value.os_disk.caching
+    storage_account_type = each.value.os_disk.storage_account_type
+    disk_size_gb         = each.value.os_disk.disk_size_gb
   }
 
   source_image_reference {
