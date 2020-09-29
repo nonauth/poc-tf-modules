@@ -73,6 +73,8 @@ resource "azurerm_linux_virtual_machine" "this" {
   computer_name  = join("-", [var.project, each.key, var.environment])
   admin_username = each.value.admin_username
   disable_password_authentication = true
+
+  custom_data = base64encode(file(each.value.bootstrap_script))
         
   admin_ssh_key {
     username       = each.value.admin_username
