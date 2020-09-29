@@ -22,6 +22,7 @@ variable vms {
     network_security_group_id     = string
     size                          = string
     image                         = map(string)
+    os_disk                       = map(string)
     admin_username                = string
     secret_name                   = string
     key_vault_id                  = string
