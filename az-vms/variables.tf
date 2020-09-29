@@ -24,6 +24,7 @@ variable vms {
     image                         = map(string)
     os_disk                       = map(string)
     admin_username                = string
+    bootstrap_script              = string
     secret_name                   = string
     key_vault_id                  = string
     storage_account_uri           = string
